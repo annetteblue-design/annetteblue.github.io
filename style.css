@@ -1,0 +1,493 @@
+/* ============================================
+   ANNETTE V. BLUE — PERSONAL WEBSITE
+   style.css
+   This file controls ALL the colors, fonts,
+   spacing, and layout of the website.
+   ============================================ */
+
+
+/* ---- GLOBAL COLOR VARIABLES ----
+   Think of these like paint colors in a palette.
+   Change one value here and it updates everywhere! */
+:root {
+  --navy: #0a1628;       /* dark navy blue - main background */
+  --gold: #c9a84c;       /* gold - accent color throughout */
+  --cream: #f9f6f0;      /* warm off-white - page background */
+  --slate: #4a5568;      /* medium gray - body text */
+  --light: #ffffff;      /* pure white */
+}
+
+
+/* ---- RESET & BASE STYLES ----
+   These remove browser default spacing so
+   everything looks the same in every browser */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* makes clicking nav links scroll smoothly */
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+}
+
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
+nav {
+  position: fixed;       /* stays at top as you scroll */
+  top: 0;
+  width: 100%;
+  z-index: 100;          /* sits on top of everything */
+  background: var(--navy);
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--gold);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-links a {
+  color: var(--cream);
+  text-decoration: none;
+  margin-left: 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold); /* turns gold when you hover over it */
+}
+
+
+/* ============================================
+   HERO SECTION — the big opening screen
+   ============================================ */
+.hero {
+  min-height: 100vh;   /* fills the full screen height */
+  background: linear-gradient(135deg, var(--navy) 60%, #1a2f5a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle gold glow effect in the background */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+/* the small tag above your name */
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.4rem 1.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* your big name */
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem); /* scales with screen size */
+  color: var(--light);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  display: block;
+}
+
+/* subtitle text */
+.hero p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+
+/* the gold button */
+.hero-cta {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+
+.hero-cta:hover {
+  background: var(--cream);
+  transform: translateY(-2px); /* slight lift on hover */
+}
+
+
+/* ============================================
+   PURSUIT FELLOW BADGE SECTION
+   ============================================ */
+.pursuit-badge {
+  background: var(--navy);
+  color: var(--light);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.badge-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* the circular "P" badge */
+.badge-logo {
+  width: 100px;
+  height: 100px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--navy);
+  /* layered gold ring effect */
+  box-shadow: 0 0 0 4px rgba(201,168,76,0.3), 0 0 0 8px rgba(201,168,76,0.1);
+}
+
+.pursuit-badge h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.pursuit-badge p {
+  color: rgba(255,255,255,0.75);
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+
+/* ============================================
+   MY STORY SECTION
+   ============================================ */
+.story {
+  padding: 6rem 2rem;
+  background: var(--cream);
+}
+
+.story-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* small uppercase label above headings */
+.section-label {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.story h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+/* the highlighted pull quote box */
+.story-quote {
+  border-left: 4px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  background: white;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--slate);
+  line-height: 1.8;
+}
+
+.story p {
+  color: var(--slate);
+  line-height: 1.9;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ============================================
+   SKILLS SECTION
+   ============================================ */
+.skills {
+  padding: 6rem 2rem;
+  background: var(--navy);
+}
+
+.skills-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.skills h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--light);
+  margin-bottom: 1rem;
+}
+
+.skills-sub {
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 3rem;
+}
+
+/* the grid of 4 skill boxes */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-card {
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.03);
+}
+
+.skill-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px); /* floats up when hovered */
+  background: rgba(201,168,76,0.05);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.skill-card p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+
+/* ============================================
+   CONTACT FORM SECTION
+   ============================================ */
+.contact {
+  padding: 6rem 2rem;
+  background: var(--cream);
+}
+
+.contact-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-sub {
+  color: var(--slate);
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+}
+
+/* each field wrapper */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+/* all input fields, dropdowns, and text areas */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 1px solid #d0ccc4;
+  background: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: var(--navy);
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+/* gold border appears when you click into a field */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-group textarea {
+  height: 140px;
+  resize: vertical;
+}
+
+/* smart message box — appears when dropdown is selected */
+.dynamic-message {
+  background: var(--navy);
+  color: var(--gold);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  display: none;           /* hidden by default, shown by JavaScript */
+  border-left: 3px solid var(--gold);
+}
+
+/* submit button */
+.submit-btn {
+  background: var(--navy);
+  color: var(--gold);
+  border: 2px solid var(--navy);
+  padding: 1rem 3rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+/* success message after form is submitted */
+.success-msg {
+  display: none;           /* hidden by default, shown by JavaScript */
+  background: #d4edda;
+  color: #155724;
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  border: 1px solid #c3e6cb;
+}
+
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 2rem;
+  border-top: 2px solid var(--gold);
+  font-size: 0.85rem;
+}
+
+footer span {
+  color: var(--gold);
+}
+
+
+/* ============================================
+   ANIMATION
+   fadeUp = elements rise up and fade in on load
+   ============================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   These kick in when screen is 768px or smaller
+   ============================================ */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.5rem;
+  }
+  .nav-links {
+    display: none; /* hides nav links on small screens */
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+}
